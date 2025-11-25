@@ -1,65 +1,95 @@
-import Image from "next/image";
+'use client'
+import React from 'react'
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import './globals.css'
+import { IoDocumentTextOutline } from "react-icons/io5"
+import { FaAward, FaTruck } from "react-icons/fa"
+import { SiCashapp } from "react-icons/si"
 
 export default function Home() {
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    pauseOnHover: false
+  }
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <div className="container-home">
+        {/* ===== SLIDER ===== */}
+        <Slider {...settings} className="slide-home">
+          <div>
+            <img src="/caneca.jpg" alt="Caneca 1" className="slide-image" />
+          </div>
+          <div>
+            <img src="/caneca-2.jpg" alt="Caneca 2" className="slide-image" />
+          </div>
+        </Slider>
+
+        {/* ===== FAIXAS ===== */}
+        <div className='faixas'>
+          <div className='faixa-garantia'>
+            <IoDocumentTextOutline className="icone-faixa" />
+            <h1>Orçamento Rápido</h1>
+            <p>Receba em poucos minutos</p>
+          </div>
+
+          <div className='faixa-garantia'>
+            <FaAward className="icone-faixa" />
+            <h1>Qualidade garantida</h1>
+            <p>Excelência para seus brindes</p>
+          </div>
+
+          <div className='faixa-garantia'>
+            <SiCashapp className="icone-faixa" />
+            <h1>Excelentes Preços</h1>
+            <p>Preços baixos e qualidade</p>
+          </div>
+
+          <div className='faixa-garantia'>
+            <FaTruck className="icone-faixa" />
+            <h1>Entrega Garantida</h1>
+            <p>Enviamos para todo o Brasil</p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      {/* ===== CARTAZ COPOS ===== */}
+      <div className='cartaz-copo'>
+        <div className='cartaz'>
+          <img src="/img1.jpg" alt="Cartaz Copo" className='image-cartaz' />
         </div>
-      </main>
-    </div>
-  );
+        <div className='cartaz'>
+          <img src="/img2.jpg" alt="Cartaz Copo" className='image-cartaz' />
+        </div>
+        <div className='cartaz'>
+          <img src="/img3.jpg" alt="Cartaz Copo" className='image-cartaz' />
+        </div>
+        <div className='cartaz'>
+          <img src="/img4.jpg" alt="Cartaz Copo" className='image-cartaz' />
+        </div>
+        <div className='cartaz'>
+          <img src="/img5.jpg" alt="Cartaz Copo" className='image-cartaz' />
+        </div>
+        <div className='cartaz'>
+          <img src="/img6.jpg" alt="Cartaz Copo" className='image-cartaz' />
+        </div>
+        <div className='cartaz'>
+          <img src="/img7.jpg" alt="Cartaz Copo" className='image-cartaz' />
+        </div>
+        <div className='cartaz'>
+          <img src="/img8.jpg" alt="Cartaz Copo" className='image-cartaz' />
+        </div>
+      </div>
+    </>
+  )
 }

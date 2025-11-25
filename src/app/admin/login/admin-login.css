@@ -1,0 +1,66 @@
+/* admin-login.css */
+
+.admin-login-container {
+  max-width: 400px;
+  margin: 180px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.admin-login-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #7E52A0;
+  font-size: 2rem;
+}
+
+.admin-login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-login-container input {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.admin-login-container input:focus {
+  border-color: #7E52A0;
+  box-shadow: 0 0 5px rgba(126, 82, 160, 0.5);
+  outline: none;
+}
+
+.admin-login-container button {
+  padding: 14px;
+  background-color: #7E52A0;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.admin-login-container button:hover {
+  background-color: #6a4587;
+  transform: translateY(-2px);
+}
+
+.admin-login-container .erro {
+  color: #ff4d4f;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

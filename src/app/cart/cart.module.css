@@ -1,0 +1,61 @@
+/* Styles para a página do carrinho */
+.cartPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 170px 16px 80px;
+}
+
+.cartTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+}
+
+.cartHead {
+  background: #f7f7f8;
+  color: #374151;
+  text-align: left;
+  font-weight: 700;
+}
+
+.cartRow td, .cartHead th {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eef2f7;
+  vertical-align: middle;
+}
+
+.productCell { display:flex; gap:12px; align-items:center; }
+.productThumb { width:72px; height:72px; object-fit:cover; border-radius:6px; }
+.productMeta { font-size:14px; color:#111827; }
+.sku { color:#6b7280; font-size:13px; margin-top:4px; }
+
+.qtyControls { display:flex; align-items:center; gap:8px; }
+.qtyBtn { width:28px; height:28px; border-radius:6px; border:1px solid #e6e7eb; background:#fff; cursor:pointer; }
+.qtyDisplay { min-width:36px; text-align:center; }
+
+.price { color:#16a34a; font-weight:800; }
+.removeBtn { background:transparent; border:none; color:#9ca3af; cursor:pointer; }
+
+.cartFooter { display:flex; gap:24px; margin-top:18px; padding: 16px; align-items:flex-start; }
+.leftCol { flex:1; }
+.rightCol { width:320px; background:#fff; border-radius:8px; padding:16px; box-shadow: 0 8px 24px rgba(2,6,23,0.04); }
+
+.summaryRow { display:flex; justify-content:space-between; margin-bottom:8px; color:#374151; }
+.summaryTotal { font-size:18px; font-weight:800; color:#111827; }
+
+.calcRow { display:flex; gap:8px; margin-top:12px; }
+.calcInput { padding:8px; border-radius:6px; border:1px solid #e6e7eb; width:140px; }
+.calcBtn { background:#f3f4f6; border:1px solid #e6e7eb; padding:8px 12px; border-radius:6px; cursor:pointer; }
+
+.checkoutBtns { display:flex; gap:12px; margin-top:16px; }
+.btnSecondary { background:#f3f4f6; border:1px solid #e6e7eb; padding:10px 14px; border-radius:8px; cursor:pointer; }
+.btnPrimary { background:#16a34a; color:white; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:800; }
+
+@media (max-width: 900px) {
+  .cartFooter { flex-direction:column; }
+  .rightCol { width:100%; }
+  .productCell { flex-direction:row; }
+}

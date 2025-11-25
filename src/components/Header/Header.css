@@ -1,0 +1,318 @@
+/* ===== HEADER ===== */
+header {
+  background-color: #7E52A0;
+  width: 100%;
+  height: 80px;
+  padding: 1.4rem 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  color: white;
+}
+
+/* ===== HAMBURGUER ===== */
+.hamburguer {
+  border-bottom: 3px solid white;
+  cursor: pointer;
+  width: 32px;
+}
+
+.hamburguer::after,
+.hamburguer::before {
+  content: '';
+  display: block;
+  background-color: white;
+  width: 32px;
+  height: 3px;
+  margin-bottom: 5px;
+  position: relative;
+  transition: 0.2s;
+}
+
+.active-burger .hamburguer {
+  border: none;
+  margin-top: 10px;
+}
+
+.active-burger .hamburguer::before {
+  transform: rotate(135deg);
+}
+
+.active-burger .hamburguer::after {
+  transform: rotate(-135deg);
+  top: -7px;
+}
+
+/* ===== CAMPO DE BUSCA ===== */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  width: 240px;
+  padding: 8px 38px 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  background-color: white;
+  color: #534E3B;
+}
+
+.search-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  color: #534E3B;
+  font-size: 2rem;
+}
+
+/* ===== ICONES ===== */
+.atendimento,
+.bem-vindo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.atendimento h1,
+.bem-vindo h1 {
+  font-size: 1.3rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.bem-vindo strong {
+  cursor: pointer;
+  color: #FFD700;
+}
+
+.chat-icon,
+.user-icon,
+.cart-icon {
+  color: white;
+  font-size: 3.5rem;
+  cursor: pointer;
+}
+
+/* badge de quantidade no carrinho */
+.carrinho-compras { position: relative; }
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff3b30;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  line-height: 1;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ===== MENU ===== */
+.menu {
+  background-color: white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 2rem 40px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 999;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  flex-direction: column;
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== HOVER NAS PÁGINAS DO MENU ===== */
+.menu-list li a {
+  text-decoration: none;
+  color: #7E52A0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Efeito de sublinhado animado ao passar o mouse */
+.menu-list li a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #7E52A0;
+  transition: width 0.3s ease;
+}
+
+/* Ao passar o mouse */
+.menu-list li a:hover {
+  color: #5a357c; /* tom mais escuro */
+}
+
+.menu-list li a:hover::after {
+  width: 100%;
+}
+
+
+/* ===== ESTADOS ===== */
+.menu-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== CONTEÚDO ABAIXO ===== */
+.container-home {
+  width: 100%;
+  margin: 0;
+  padding-top: 80px; /* header + menu */
+  overflow: hidden;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  header {
+    justify-content: space-between;
+    padding: 1rem 20px;
+    gap: 0.5rem;
+    position: fixed;
+    top: 0;
+  }
+
+  /* Hamburger à esquerda */
+  .burger-wrapper {
+    order: 1;
+    flex: none;
+  }
+
+  /* Logotipo centralizado */
+  .logo {
+    order: 2;
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Carrinho à direita */
+  .carrinho-compras {
+    order: 3;
+    flex: none;
+  }
+
+  /* Oculta elementos não usados no mobile */
+  .search-box, .atendimento, .bem-vindo {
+    display: none;
+  }
+
+  /* Menu expande verticalmente ao clicar no hamburguer */
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .menu-list {
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+}
+
+/* ===== MENU MOBILE ===== */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 998;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-top: 1px solid #eee;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mobile-menu-list li a {
+  text-decoration: none;
+  color: #534E3B;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-list li a:hover {
+  color: #7E52A0;
+}
+
+/* Blocos extras no mobile */
+.mobile-extra {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mobile-atendimento,
+.mobile-conta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #534E3B;
+}
+
+.mobile-conta strong {
+  color: #7E52A0;
+  cursor: pointer;
+}
+
+.mobile-atendimento .chat-icon,
+.mobile-conta .user-icon {
+  font-size: 2rem;
+  color: #7E52A0;
+}

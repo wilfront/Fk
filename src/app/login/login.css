@@ -1,0 +1,93 @@
+/* Container do login */
+.login-container {
+  max-width: 400px;
+  margin: 180px auto;
+  padding: 30px 25px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-container:hover {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Título */
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  color: #7E52A0;
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.login-form input:focus {
+  border-color: #7E52A0;
+  box-shadow: 0 0 6px rgba(126, 82, 160, 0.3);
+  outline: none;
+}
+
+/* Botão */
+.login-form button {
+  width: 100%;
+  padding: 14px;
+  background: #7E52A0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.login-form button:hover {
+  background: #6a4587;
+  transform: translateY(-2px);
+}
+
+/* Links */
+.login-links {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-links p {
+  color: #7E52A0;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.login-links p:hover {
+  color: #A676C8;
+}
+
+/* Mensagens de erro e sucesso */
+.erro {
+  color: #ff4d4f;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.sucesso {
+  color: #4caf50;
+  margin:auto;
+}
