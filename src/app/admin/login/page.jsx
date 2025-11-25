@@ -1,7 +1,8 @@
 "use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import "../../admin/login/admin-login.css";
+import "./admin-login.css"; // ajuste o caminho conforme sua estrutura
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -12,7 +13,6 @@ export default function AdminLoginPage() {
   async function handleLogin(e) {
     e.preventDefault();
     setErro("");
-    console.log("📤 Tentando fazer login com:", email);
 
     try {
       const res = await fetch("/api/admin/login", {
@@ -21,24 +21,15 @@ export default function AdminLoginPage() {
         body: JSON.stringify({ email, senha }),
       });
 
-      console.log("📥 Status da resposta:", res.status);
       const data = await res.json();
-      console.log("📥 Dados da resposta:", data);
 
       if (res.ok && data.token) {
-        console.log("✅ Login OK - Salvando token");
         localStorage.setItem("adminToken", data.token);
-        console.log("✅ Token salvo no localStorage");
-        
-        console.log("🔄 Redirecionando para /admin...");
-        await router.push("/admin");
-        console.log("✅ Router.push executado");
+        router.push("/admin");
       } else {
-        console.log("❌ Login falhou:", data.error);
         setErro(data.error || "Erro ao fazer login");
       }
     } catch (err) {
-      console.error("❌ ERRO NA REQUISIÇÃO:", err);
       setErro("Ocorreu um erro. Tente novamente.");
     }
   }

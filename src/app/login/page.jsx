@@ -1,6 +1,12 @@
 "use client";
+
 import { useState, useEffect } from "react";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import { app } from "@/lib/firebase";
 import { useRouter, useSearchParams } from "next/navigation";
 import "./login.css";
@@ -16,10 +22,10 @@ export default function UserLoginPage() {
   const searchParams = useSearchParams();
   const auth = getAuth(app);
 
-  // Lê o parâmetro modo da URL
+  // Lê o parâmetro "modo" da URL
   useEffect(() => {
-    const modoUrl = searchParams.get('modo');
-    if (modoUrl === 'cadastro' || modoUrl === 'reset') {
+    const modoUrl = searchParams.get("modo");
+    if (modoUrl === "cadastro" || modoUrl === "reset") {
       setModo(modoUrl);
     }
   }, [searchParams]);
@@ -61,6 +67,7 @@ export default function UserLoginPage() {
         {modo === "cadastro" && "Cadastro de Usuário"}
         {modo === "reset" && "Recuperar Senha"}
       </h1>
+
       <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="email"
@@ -69,7 +76,8 @@ export default function UserLoginPage() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        {(modo !== "reset") && (
+
+        {modo !== "reset" && (
           <input
             type="password"
             placeholder="Sua senha"
@@ -78,6 +86,7 @@ export default function UserLoginPage() {
             required
           />
         )}
+
         {modo === "cadastro" && (
           <input
             type="password"
@@ -87,21 +96,27 @@ export default function UserLoginPage() {
             required
           />
         )}
+
         {erro && <p className="erro">{erro}</p>}
         {sucesso && <p className="sucesso">{sucesso}</p>}
+
         <button type="submit">
           {modo === "login" && "Entrar"}
           {modo === "cadastro" && "Cadastrar"}
           {modo === "reset" && "Enviar email"}
         </button>
       </form>
+
       <div className="login-links">
         {modo === "login" && (
           <>
-            <p onClick={() => setModo("cadastro")}>Não possui conta? Cadastre-se</p>
+            <p onClick={() => setModo("cadastro")}>
+              Não possui conta? Cadastre-se
+            </p>
             <p onClick={() => setModo("reset")}>Esqueceu a senha?</p>
           </>
         )}
+
         {(modo === "cadastro" || modo === "reset") && (
           <p onClick={() => setModo("login")}>Voltar ao login</p>
         )}
